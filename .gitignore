@@ -3,3 +3,5 @@
 *.DNO
 *.TNO
 *.inx*
+*.bak_cir
+/MicroCap/
