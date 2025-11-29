@@ -218,6 +218,31 @@ clc; clear; close all;
 % 
 %     fprintf('%s RF buffer calculated\n', datestr(now));
 % 
+
+%% Смеситель
+clc; clear;
+BasePar = BaseParamsInit();
+
+% Задание рабочей точки транзисторов
+    % Транзистор токового зеркала
+        Id0  = 10.101e-3;
+        Uds0 = 0.45;
+        Ugs0  = 0.716;
+    % Нижняя пара транзисторов
+        Id1  = 5.058e-3;
+        Uds1 = 0.45;
+        Ugs1  = 0.668;
+    % Верхняя четверка транзисторов
+        Id2  = 2.519e-3;
+        Uds2 = 0.45;
+        Ugs2  = 0.63;
+
+% Резистор токового зеркала
+    R2 = (BasePar.E - Ugs0) / Id0;
+
+% Верхние резисторы
+    R1 = (BasePar.E - Uds0 - Uds1 - Uds2) / Id1;
+
 % %% Смеситель (бг, 2N3904)
 %     clear; clc
 % 
@@ -257,7 +282,7 @@ clc; clear; close all;
 % 
 %     fprintf('%s Mixer calculated\n', datestr(now));
 % 
-% %% УПЧ
+%% УПЧ
 %     clear; clc
 % 
 % % --- Исходные данные -------------------------------------------------- %
