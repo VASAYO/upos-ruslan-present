@@ -7,8 +7,8 @@ Shape Version=11.00
 Screen=1920,1080
 MCAPVersion=12.2.0.5
 Key ID=Demo
-NLCnt=209
-TXCnt=5
+NLCnt=232
+TXCnt=8
 
 [shapedef]
 Name=Battery
@@ -221,6 +221,56 @@ Ellipse=38,6,42,10
 Ellipse=38,70,42,74
 
 [shapedef]
+Name=Trans.root
+Arc=1,4,15,18 , 8,18,15,11
+Arc=1,5,15,17 , 15,11,8,5
+Line=48,0,40,0
+Line=24,5,24,43
+Line=40,0,40,5
+Line=48,48,40,48
+Line=40,48,40,42
+Line=22,43,22,5
+Line=26,43,26,5
+Line=8,0,0,0
+Line=8,0,8,5
+Line=0,48,8,48
+Line=8,48,8,42
+Arc=5,12,11,18 , 5,15,8,18
+Arc=5,13,11,17 , 8,13,5,15
+Arc=1,13,15,25 , 15,19,8,13
+Arc=1,12,15,26 , 8,26,15,19
+Arc=5,20,11,26 , 5,23,8,26
+Arc=5,21,11,25 , 8,21,5,23
+Arc=1,21,15,33 , 15,27,8,21
+Arc=1,20,15,34 , 8,34,15,27
+Arc=5,28,11,34 , 5,31,8,34
+Arc=5,29,11,33 , 8,29,5,31
+Arc=1,29,15,41 , 15,35,8,29
+Arc=1,28,15,42 , 8,42,15,35
+Arc=33,30,47,42 , 33,36,40,42
+Arc=33,29,47,43 , 40,29,33,36
+Arc=37,29,43,35 , 43,32,40,29
+Arc=37,30,43,34 , 40,34,43,32
+Arc=33,22,47,34 , 33,28,40,34
+Arc=33,21,47,35 , 40,21,33,28
+Arc=37,21,43,27 , 43,24,40,21
+Arc=37,22,43,26 , 40,26,43,24
+Arc=33,14,47,26 , 33,20,40,26
+Arc=33,13,47,27 , 40,13,33,20
+Arc=37,13,43,19 , 43,16,40,13
+Arc=37,14,43,18 , 40,18,43,16
+Arc=33,6,47,18 , 33,12,40,18
+Arc=33,5,47,19 , 40,5,33,12
+
+[shapedef]
+Name=Transformer
+Root="Trans.root",0,0,0
+Current=0,16,0,32
+Current=48,16,48,32
+Ellipse=2,4,4,6
+Ellipse=44,4,46,6
+
+[shapedef]
 Name=Vsource.root
 Line=0,0,12,0
 Line=36,0,48,0
@@ -235,7 +285,7 @@ Name=Voltage Source
 Definition=VSpice
 Shape=SPICE_V
 Mask=4865
-Used=81
+Used=83
 memo=Voltage Source
 Label Offset=19,13,15,13
 PinCnt=2
@@ -247,7 +297,7 @@ Name=Ground
 Definition=Ground
 Shape=Ground
 Mask=257
-Used=497
+Used=500
 memo=Ground
 Label Offset=0,0,0,0
 PinCnt=1
@@ -356,6 +406,20 @@ Pin="2M",a,6,6,-6,-2
 Pin="3P",a,6,8,-5,16
 Pin="3M",a,6,14,-5,-2
 
+[compdef]
+Name=Ideal_Trans2
+Definition=Macro
+Shape=Transformer
+Mask=4224
+Used=14
+memo=Ideal Transformer Macro
+Label Offset=10,53,1,11
+PinCnt=4
+Pin="1P",a,0,0,-5,-3
+Pin="1M",a,0,6,-6,17
+Pin="2P",a,6,0,-4,-3
+Pin="2M",a,6,6,-6,17
+
 [Circuit]
 Window Placement=2,3, -1,-1, -8,-31, 130,130,1360,652
 Default Object=Color=#000080
@@ -375,7 +439,7 @@ SpiceType=AMBIGUOUS
 Title_Block_Border=None
 Title_Block=False
 Show Nodes=False
-Show Voltages=True
+Show Voltages=False
 Show Current=False
 Show Power=False
 Show Condition=False
@@ -1281,7 +1345,7 @@ Pxs=1576,896,1840,896
 Name=NMOS
 Px=1280,1080
 Rot=4
-COff=8,1304,1056,20,-3
+COff=8,1304,1056,21,-6
 COff=8,1304,1080,41,-3
 
 [Attr]
@@ -1390,10 +1454,10 @@ ON=0,0,PACKAGE
 V
 
 [Wire]
-Pxs=1304,944,1304,1040
+Pxs=1304,944,1304,952
 
 [Wire]
-Pxs=1840,944,1840,1032
+Pxs=1840,944,1840,1000
 
 [Comp]
 Name=Ground
@@ -1459,6 +1523,7 @@ Pxs=1480,1080,1576,1080
 Name=NMOS
 Px=1344,1248
 Rot=4
+COff=8,1368,1224,3,-11
 
 [Attr]
 ON=-5,-33,PART
@@ -1971,10 +2036,138 @@ Pxs=1576,1424,1576,1448
 [Wire]
 Pxs=1872,1424,1872,1448
 
+[Comp]
+Name=Voltage Source
+Px=976,1168
+Rot=3
+
+[Attr]
+ON=-39,-27,PART
+V=V13
+Style=8192
+
+[Attr]
+ON=-255,-41,VALUE
+V=DC 0 AC 1 0 Sin 0 150m 200meg 0 0 0
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Attr]
+ON=0,0,Saved_Sin
+V=DC 0 AC 1 0 Sin 0 150m 200meg 0 0 0
+Style=256
+
+[Wire]
+Pxs=976,1168,976,1192
+
+[Wire]
+Pxs=976,1192,1000,1192
+
+[Wire]
+Pxs=976,1080,992,1080
+
+[Wire]
+Pxs=976,1080,976,1120
+
+[Comp]
+Name=Voltage Source
+Px=976,1336
+Rot=3
+
+[Attr]
+ON=-39,-27,PART
+V=V14
+Style=8192
+
+[Attr]
+ON=-255,-41,VALUE
+V=DC 0 AC 1 0 Sin 0 50m 180meg 0 0 0
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Attr]
+ON=0,0,Saved_Sin
+V=DC 0 AC 1 0 Sin 0 50m 180meg 0 0 0
+Style=256
+
+[Wire]
+Pxs=976,1336,976,1360
+
+[Wire]
+Pxs=976,1360,984,1360
+
+[Wire]
+Pxs=976,1248,1008,1248
+
+[Wire]
+Pxs=976,1248,976,1288
+
+[Comp]
+Name=Ideal_Trans2
+Px=1872,952
+
+[Attr]
+ON=10,53,PART
+V=X3
+Style=8192
+
+[Attr]
+ON=10,67,FILE
+V=Ideal_Trans2
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Wire]
+Pxs=1840,1000,1872,1000
+
+[Wire]
+Pxs=1840,1000,1840,1032
+
+[Wire]
+Pxs=1304,952,1872,952
+
+[Wire]
+Pxs=1304,952,1304,1040
+
+[Wire]
+Pxs=1920,1000,1992,1000
+
+[Wire]
+Pxs=1920,952,1992,952
+
+[Comp]
+Name=Ground
+Px=1992,1000
+Rot=1
+
+[Wire]
+Pxs=992,1080,1064,1080
+
+[Wire]
+Pxs=1008,1248,1064,1248
+
+[Comp]
+Name=Ground
+Px=984,1360
+Rot=1
+
+[Wire]
+Pxs=984,1360,1064,1360
+
+[Wire]
+Pxs=1000,1192,1064,1192
+
 [Node Offsets]
 Section=0
 ;Node,Page,GridX,GridY,OffsetX,OffsetY
 Offset=17,0,1304,1104,73,58
+Offset=23,0,1368,1272,208,31
 
 [Grid Text]
 Text="AC"
@@ -2009,22 +2202,36 @@ JustifyV=Bottom
 CBorder=None
 
 [Grid Text]
-Text="Dynamic DC"
-Text="Temperature=27"
-Text="Displaying DC Voltages"
-Text="PGT = Total power generated = [PGT]"
-Text="PDT = Total power dissipated = [PDT]"
-BannerDC=True
-Px=16,117
-Height=-15
-Color=#800000
-Font=Arial
-GridSnap=False
+Text="MIXER"
+Px=1992,952
+GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
-Formula=True
-CFill=#C0C0C0
-CBorder=#000000
+CBorder=None
+
+[Grid Text]
+Text="GET1"
+Px=992,1080
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="PRESEL"
+Px=1008,1248
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="GET2"
+Px=1000,1192
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
 
 [Schematic]
 CurrentSection 0=0
@@ -2223,9 +2430,9 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-SB 3=765,834
+SB 3=789,779
 Scale 3=1
-Px=1367,1147
+Px=983,1307
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -2409,7 +2616,7 @@ WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
 Select Box Color=#000080
-Title=Main.cir RFA
+Title=Main.cir MIXER
 AutoTitle=Yes
 Grid Color=#808080
 Grid Weight=1
@@ -2468,7 +2675,7 @@ FFT_IncludeDCHarmonic=False
 FFT_AutoScale_Harmonics="10"
 PrinterAutoTile=No
 PrinterBlackBorder=No
-MonMaxShow=11
+MonMaxShow=14
 MonPageWidth=66
 MonPlotWidth=21
 MonExprXWidth=142
@@ -2634,6 +2841,70 @@ Name="IC"
 [APage]
 Analysis=Transient
 Name="RFA"
+
+[APage]
+Analysis=Transient
+Name="MIXER"
+
+[APage]
+Analysis=Transient
+Name="MIXER2"
+
+[AObject]
+Analysis=Transient
+Object=Tag
+Locked=True
+EndPoint=ArrowF
+CBorder=#000080
+w=13
+AliasID1=14
+Page="MIXER2"
+Pos=19999999.999999996,0.20459104844872025,20197120.708748616,0.15147058823529411
+Font=Height=-15,FStyle=0,Color=#FF00FF,Name=Arial
+Format=3
+FormatY=3
+
+[AObject]
+Analysis=Transient
+Object=Tag
+Locked=True
+EndPoint=ArrowF
+CBorder=#000080
+w=11
+AliasID1=12
+Page="MIXER"
+Pos=199999999.99999997,0.14999996117602138,194555924.6954596,0.13046218487394959
+Font=Height=-15,FStyle=0,Color=#FF0000,Name=Arial
+Format=3
+FormatY=3
+
+[AObject]
+Analysis=Transient
+Object=Tag
+Locked=True
+EndPoint=ArrowF
+CBorder=#000080
+w=12
+AliasID1=13
+Page="MIXER"
+Pos=179999999.99999997,0.14999997489284395,181838316.72203767,0.1319327731092437
+Font=Height=-15,FStyle=0,Color=#008000,Name=Arial
+Format=3
+FormatY=3
+
+[AObject]
+Analysis=Transient
+Object=Tag
+Locked=True
+EndPoint=ArrowF
+CBorder=#000080
+w=12
+AliasID1=13
+Page="MIXER"
+Pos=179999999.99999997,0.14999997478444752,180176079.73421925,0.1552941176470588
+Font=Height=-15,FStyle=0,Color=#008000,Name=Arial
+Format=3
+FormatY=3
 
 [AObject]
 Analysis=Transient
@@ -3203,6 +3474,85 @@ SFmtY=2
 NOFmtX=3E
 NOFmtY=3E
 
+[WaveForm]
+Analysis=Transient
+Plt=1
+Page=MIXER
+AliasID=12
+XExp=F
+YExp=harm(v(GET1, GET2))
+XRng=201e6,179e6
+YRng=150m, 0
+Options=LINEARX,LINEARY
+Enable=Enable
+CS=Popsicle
+Line Color=#FF0000
+Text Color=#FF0000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=1
+Page=MIXER
+AliasID=13
+XExp=F
+YExp=harm(v(PRESEL))
+XRng=201e6,179e6
+YRng=150m, 0
+Options=LINEARX,LINEARY
+Enable=Enable
+CS=Popsicle
+Line Color=#008000
+Text Color=#008000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=1
+Page=MIXER2
+AliasID=14
+XExp=F
+YExp=harm(v(MIXER))
+XRng=21e6,19e6
+YRng=150m, 0
+Options=LINEARX,LINEARY
+Range Grid X=100e3
+Enable=Enable
+CS=Popsicle
+Line Color=#FF00FF
+Text Color=#FF00FF
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
 [Limits]
 Analysis=AC
 FRange=300Meg,100Meg
@@ -3286,7 +3636,7 @@ PlaceText=True
 
 [Pane]
 Analysis=Transient
-CurrentPage 0="RFA"
+CurrentPage 0="MIXER2"
 
 [Pane]
 Analysis=AC
