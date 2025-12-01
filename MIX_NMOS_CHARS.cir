@@ -8,7 +8,7 @@ Screen=1920,1080
 MCAPVersion=12.2.0.5
 Key ID=Demo
 NLCnt=12
-TXCnt=1
+TXCnt=0
 
 [shapedef]
 Name=Ground
@@ -84,8 +84,8 @@ Current=32,16,16,16
 Name=NMOS
 Definition=NMOS
 Shape=NMOS
-Mask=4608
-Used=12
+Mask=5376
+Used=19
 memo=NMOS
 Label Offset=29,1,7,25
 PinCnt=4
@@ -99,7 +99,7 @@ Name=Ground
 Definition=Ground
 Shape=Ground
 Mask=257
-Used=497
+Used=517
 memo=Ground
 Label Offset=0,0,0,0
 PinCnt=1
@@ -110,7 +110,7 @@ Name=Resistor
 Definition=Resistor
 Shape=Resistor
 Mask=6401
-Used=332
+Used=349
 memo=Resistor
 Label Offset=18,6,8,11
 PinCnt=2
@@ -122,7 +122,7 @@ Name=Voltage Source
 Definition=VSpice
 Shape=SPICE_V
 Mask=4865
-Used=81
+Used=88
 memo=Voltage Source
 Label Offset=19,13,15,13
 PinCnt=2
@@ -143,7 +143,7 @@ PathDelayFormat=3
 WarningFormat=3
 GridTextFormulaFormat=3
 Window Placement in Transient Analysis=2,3, -1,-1, -8,-31, 182,182,1833,704
-Window Placement in DC Analysis=2,3, -1,-1, -8,-31, 78,78,1729,600
+Window Placement in DC Analysis=2,3, -1,-1, -8,-31, 692,146,1333,668
 SpiceType=AMBIGUOUS
 Title_Block_Border=None
 Title_Block=False
@@ -217,7 +217,7 @@ Style=8192
 
 [Attr]
 ON=-90,-41,VALUE
-V=DC 0 AC 1 0
+V=DC 0.45 AC 1 0 
 
 [Attr]
 ON=0,0,PACKAGE
@@ -250,7 +250,7 @@ Style=256
 
 [Attr]
 ON=0,0,Saved_None
-V=DC 0 AC 1 0 
+V=DC 0.45 AC 1 0 
 Style=256
 
 [Comp]
@@ -273,7 +273,7 @@ Style=8192
 
 [Attr]
 ON=-90,-41,VALUE
-V=DC 0 AC 1 0
+V=DC 715.14m AC 1 0 
 
 [Attr]
 ON=0,0,PACKAGE
@@ -306,7 +306,7 @@ Style=256
 
 [Attr]
 ON=0,0,Saved_None
-V=DC 0 AC 1 0 
+V=DC 715.14m AC 1 0 
 Style=256
 
 [Comp]
@@ -320,24 +320,6 @@ Px=568,392
 
 [Wire]
 Pxs=472,392,544,392
-
-[Grid Text]
-Text="Dynamic DC"
-Text="Temperature=27"
-Text="Displaying DC Voltages"
-Text="PGT = Total power generated = [PGT]"
-Text="PDT = Total power dissipated = [PDT]"
-BannerDC=True
-Px=16,117
-Height=-15
-Color=#800000
-Font=Arial
-GridSnap=False
-JustifyH=Left
-JustifyV=Bottom
-Formula=True
-CFill=#C0C0C0
-CBorder=#000000
 
 [Schematic]
 CurrentSection 0=0
@@ -537,7 +519,7 @@ Scale 1=1
 Scale 2=1
 SB 3=296,222
 Scale 3=0.5
-Px=555,475
+Px=390,480
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -601,7 +583,6 @@ Type=Text
 Print=False
 Enable=True
 Name=Models
-SB 0=0,17
 Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
 Comment Color=#008000
 WinBackGround Color=#FFFFFF
@@ -925,7 +906,7 @@ Name="MAIN"
 
 [DC]
 WinID=3
-Window Placement=2,3, -1,-1, -8,-31, 78,78,1729,600
+Window Placement=2,3, -1,-1, -8,-31, 692,146,1333,668
 Font=Height=-19,FStyle=0,Color=#0000FF,Name=Arial
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
@@ -967,7 +948,7 @@ Tracker Cursor=True
 Tracker Cursor BranchInfo=False
 Horizontal Cursor=False
 Same Y Scales=Yes
-Enable X Scaling=True
+Enable X Scaling=False
 Enable Y Scaling=True
 Keep X Scales The Same=True
 Number of Grids X=5
@@ -976,10 +957,10 @@ Cursor Select Color Primary=#C0C0C0
 Cursor Select Color Secondary=#FF0000
 Data Point Labels Color Fore=Height=-15,FStyle=0,Color=#000000,Name=Arial
 Data Point Labels Color Back=#FFFF00
-AutoScaleRanges=True
+AutoScaleRanges=False
 PrinterAutoTile=No
 PrinterBlackBorder=No
-MonMaxShow=3
+MonMaxShow=2
 MonPageWidth=66
 MonPlotWidth=21
 MonExprXWidth=142
@@ -1135,7 +1116,71 @@ ALIGNBOTTOM=Yes
 
 [APage]
 Analysis=DC
-Name="MAIN"
+Name="OUT"
+
+[APage]
+Analysis=DC
+Name="TRANSFER"
+
+[AObject]
+Analysis=DC
+Object=Tag
+Locked=True
+EndPoint=ArrowF
+CBorder=#000080
+w=1
+AliasID1=2
+Page="TRANSFER"
+Pos=0.6294413580682886,0.0024999999999999996,0.66760439560439555,0.0021448382126348225
+Font=Height=-15,FStyle=0,Color=#FF0000,Name=Arial
+Format=3
+FormatY=3
+Branch=0
+
+[AObject]
+Analysis=DC
+Object=Tag
+Locked=True
+EndPoint=ArrowF
+CBorder=#000080
+w=1
+AliasID1=2
+Page="TRANSFER"
+Pos=0.6671750043456065,0.0049999999999999992,0.6885714285714285,0.0043451463790446839
+Font=Height=-15,FStyle=0,Color=#FF0000,Name=Arial
+Format=3
+FormatY=3
+Branch=0
+
+[AObject]
+Analysis=DC
+Object=Tag
+Locked=True
+EndPoint=ArrowF
+CBorder=#000080
+w=0
+AliasID1=1
+Page="OUT"
+Pos=0.45411240889348886,0.01,0.47060439560439565,0.010947867298578202
+Font=Height=-15,FStyle=0,Color=#0000FF,Name=Arial
+Format=3
+FormatY=3
+Branch=0
+
+[AObject]
+Analysis=DC
+Object=Tag
+Locked=True
+EndPoint=ArrowF
+CBorder=#000080
+w=1
+AliasID1=2
+Page="TRANSFER"
+Pos=0.71514026793049001,0.0099999999999999967,0.72127472527472525,0.0082465331278890591
+Font=Height=-15,FStyle=0,Color=#FF0000,Name=Arial
+Format=3
+FormatY=3
+Branch=0
 
 [Monte Carlo Options]
 Analysis=Transient
@@ -1243,7 +1288,7 @@ NOFmtY=3E
 [Limits]
 Analysis=DC
 I1Range=1.5, 0, 0.01
-I1=VD
+I1=VG
 NPts=51
 Temp=27
 MaxChng=5
@@ -1258,14 +1303,13 @@ Sweep2 type=None
 [WaveForm]
 Analysis=DC
 Plt=1
+Page=OUT
 AliasID=1
 XExp=v(Vd)
 YExp=-i(Rd)
-XRng=1.5
-YRng=0.02
+XRng=AutoAlways
+YRng=AutoAlways
 Options=LINEARX,LINEARY
-Range Grid X=0.3
-Range Grid Y=0.004
 Enable=Enable
 Line Color=#0000FF
 Text Color=#0000FF
@@ -1283,30 +1327,19 @@ NOFmtY=3E
 
 [WaveForm]
 Analysis=DC
-AliasID=-1
+Plt=1
+Page=TRANSFER
+AliasID=2
+XExp=v(Vg)
+YExp=-i(Rd)
+XRng=740m, 500m
+YRng=12m, 0
 Options=LINEARX,LINEARY
+Range Grid X=50m
+Range Grid Y=1m
 Enable=Enable
 Line Color=#FF0000
 Text Color=#FF0000
-Rainbow=False
-VFmtX=3
-VFmtY=3
-ScaleFactorX="None"
-ScaleFactorY="None"
-ScaleUnitsX="Auto"
-ScaleUnitsY="Auto"
-SFmtX=2
-SFmtY=2
-NOFmtX=3E
-NOFmtY=3E
-
-[WaveForm]
-Analysis=DC
-AliasID=-1
-Options=LINEARX,LINEARY
-Enable=Enable
-Line Color=#008000
-Text Color=#008000
 Rainbow=False
 VFmtX=3
 VFmtY=3
@@ -1340,7 +1373,7 @@ Analysis=AC
 
 [Pane]
 Analysis=DC
-CurrentPage 0="MAIN"
+CurrentPage 0="TRANSFER"
 
 [Pane]
 Analysis=HmDistortion
@@ -1355,13 +1388,22 @@ Analysis=Stability
 Analysis=DC
 Index=1
 Simultaneous=Yes
-Status=On
 Parameter Type=Component
 Name=VG
 Param=dc.value
 From=0.6
 To=0.72
-Value=0.001
+Value=0.01
+
+[Stepping]
+Analysis=DC
+Index=2
+Parameter Type=Component
+Name=VD
+Param=dc.value
+From=0.45
+To=1.35
+Value=0.45
 
 [Watch]
 Analysis=Transient
