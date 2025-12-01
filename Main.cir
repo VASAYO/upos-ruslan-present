@@ -5,9 +5,9 @@ Program=Micro-Cap
 Component Version=10.00
 Shape Version=11.00
 Screen=1920,1080
-MCAPVersion=12.2.0.3
+MCAPVersion=12.2.0.5
 Key ID=Demo
-NLCnt=218
+NLCnt=220
 TXCnt=10
 
 [shapedef]
@@ -269,7 +269,7 @@ Name=Voltage Source
 Definition=VSpice
 Shape=SPICE_V
 Mask=4865
-Used=38
+Used=90
 memo=Voltage Source
 Label Offset=19,13,15,13
 PinCnt=2
@@ -280,8 +280,8 @@ Pin="Minus",0,0,-20,-6
 Name=Ground
 Definition=Ground
 Shape=Ground
-Mask=1793
-Used=257
+Mask=257
+Used=521
 memo=Ground
 Label Offset=0,0,0,0
 PinCnt=1
@@ -291,8 +291,8 @@ Pin="PinA",0,0,-3,-7
 Name=Resistor
 Definition=Resistor
 Shape=Resistor
-Mask=6913
-Used=150
+Mask=6401
+Used=354
 memo=Resistor
 Label Offset=18,6,8,11
 PinCnt=2
@@ -303,8 +303,8 @@ Pin="Minus",0,0,-14,-4
 Name=Inductor
 Definition=Inductor
 Shape=Inductor
-Mask=7681
-Used=28
+Mask=6145
+Used=87
 memo=Inductor
 Label Offset=18,9,11,12
 PinCnt=2
@@ -315,8 +315,8 @@ Pin="Minus",0,0,-3,-9
 Name=Capacitor
 Definition=Capacitor
 Shape=Capacitor
-Mask=7425
-Used=22
+Mask=6145
+Used=162
 memo=Capacitor
 Label Offset=16,12,12,12
 PinCnt=2
@@ -327,8 +327,8 @@ Pin="Minus",0,0,-14,-5
 Name=NPN
 Definition=NPN
 Shape=NPN
-Mask=5633
-Used=11
+Mask=4097
+Used=28
 memo=NPN Transistor
 Label Offset=37,-17,-14,33
 PinCnt=3
@@ -340,8 +340,8 @@ Pin="Emitter",3,3,5,1
 Name=Battery
 Definition=Battery
 Shape=Battery
-Mask=7937
-Used=51
+Mask=6145
+Used=100
 memo=Battery
 Label Offset=19,7,10,13
 PinCnt=2
@@ -353,6 +353,7 @@ Name=NMOS
 Definition=NMOS
 Shape=NMOS
 Mask=5376
+Used=19
 memo=NMOS
 Label Offset=29,1,7,25
 PinCnt=4
@@ -366,6 +367,7 @@ Name=Ideal_Trans3
 Definition=Macro
 Shape=Trans3
 Mask=4736
+Used=4
 memo=Ideal Transformer - 3 Port Macro
 Label Offset=7,115,0,2
 PinCnt=6
@@ -381,6 +383,7 @@ Name=Ideal_Trans2
 Definition=Macro
 Shape=Transformer
 Mask=4224
+Used=13
 memo=Ideal Transformer Macro
 Label Offset=10,53,1,11
 PinCnt=4
@@ -634,12 +637,13 @@ V
 
 [Wire]
 Pxs=1080,488,1080,520
+Enable=FALSE
 
 [Comp]
 Name=Resistor
 Px=1272,552
 Rot=1
-COff=8,1280,563,-51,31
+COff=8,1280,563,-71,7
 
 [Attr]
 ON=8,11,PART
@@ -659,6 +663,7 @@ V
 Name=Resistor
 Px=1272,408
 Rot=1
+COff=8,1280,419,-72,8
 
 [Attr]
 ON=8,11,PART
@@ -677,9 +682,9 @@ V
 [Comp]
 Name=NPN
 Px=1312,488
-COff=8,1312,488,-30,-2
-COff=8,1336,464,25,0
-COff=8,1336,512,29,-5
+COff=8,1312,488,-41,-4
+COff=8,1336,464,15,-3
+COff=8,1336,512,15,-9
 
 [Attr]
 ON=30,-15,PART
@@ -710,6 +715,7 @@ Pxs=1272,488,1312,488
 Name=Resistor
 Px=1336,528
 Rot=1
+COff=8,1344,539,-58,4
 
 [Attr]
 ON=8,11,PART
@@ -732,6 +738,7 @@ Pxs=1336,576,1336,584
 Name=Resistor
 Px=1336,592
 Rot=1
+COff=8,1344,603,-60,5
 
 [Attr]
 ON=8,11,PART
@@ -808,6 +815,7 @@ Pxs=1272,600,1272,648
 Name=Resistor
 Px=1336,392
 Rot=1
+COff=8,1344,403,-59,5
 
 [Attr]
 ON=8,11,PART
@@ -1662,7 +1670,6 @@ Pxs=2392,312,2392,352
 
 [Comp]
 Name=Voltage Source
-Enable=FALSE
 Px=2392,576
 Rot=3
 
@@ -1772,7 +1779,6 @@ Pxs=768,568,768,600
 
 [Comp]
 Name=Resistor
-Enable=FALSE
 Px=2112,480
 Rot=1
 
@@ -1792,7 +1798,6 @@ V
 
 [Comp]
 Name=Ground
-Enable=FALSE
 Px=2112,528
 Rot=1
 
@@ -2098,10 +2103,16 @@ Pxs=2208,480,2216,480
 Pxs=992,488,1080,488
 
 [Wire]
-Pxs=2216,480,2432,480
+Pxs=1640,448,1760,448
 
 [Wire]
-Pxs=1640,448,1760,448
+Pxs=2392,480,2392,528
+
+[Wire]
+Pxs=2392,480,2432,480
+
+[Wire]
+Pxs=2216,480,2392,480
 
 [Grid Text]
 Text="AC"
@@ -2168,7 +2179,7 @@ JustifyV=Bottom
 CBorder=None
 
 [Grid Text]
-Text="BUF1"
+Text="BUF"
 Px=2056,480
 GridSnap=True
 JustifyH=Left
@@ -2191,7 +2202,7 @@ CurrentSection 3=0
 Splitter.xs=0
 Splitter.ys=0
 TextQuad=4099
-Scale=0.66666666666666663
+Scale=1
 GridUser=10
 ShapeGroups="Main","Euro","Polarity","Main1","Main11","Electrolytic","GroundArrow","DeMorgan"
 CalcRMS=False
@@ -2379,9 +2390,9 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-SB 3=851,238
-Scale 3=0.66666666666666663
-Px=908,695
+SB 3=833,264
+Scale 3=1
+Px=1490,702
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -2627,7 +2638,7 @@ FFT_IncludeDCHarmonic=False
 FFT_AutoScale_Harmonics="10"
 PrinterAutoTile=No
 PrinterBlackBorder=No
-MonMaxShow=22
+MonMaxShow=25
 MonPageWidth=66
 MonPlotWidth=21
 MonExprXWidth=142
@@ -2804,11 +2815,11 @@ Name="PRESELECTOR"
 
 [APage]
 Analysis=Transient
-Name="MIXER"
+Name="MIXER IN"
 
 [APage]
 Analysis=Transient
-Name="MIXER2"
+Name="MIXER OUT"
 
 [AObject]
 Analysis=Transient
@@ -2816,10 +2827,10 @@ Object=Tag
 Locked=True
 EndPoint=ArrowF
 CBorder=#000080
-w=9
-AliasID1=10
-Page="RFA"
-Pos=179749999.99999997,0.034797462424932188,179636313.15935591,0.040537974683544309
+w=24
+AliasID1=25
+Page="MIXER OUT"
+Pos=19999999.999999996,0.17809673350470945,20095632.946379215,0.14923208191126283
 Font=Height=-15,FStyle=0,Color=#000000,Name=Arial
 Format=3
 FormatY=3
@@ -2830,7 +2841,7 @@ Object=Tag
 Locked=True
 EndPoint=ArrowF
 CBorder=#000080
-w=17
+w=19
 AliasID1=22
 Page="PRESELECTOR"
 Pos=179999999.99999997,0.013412952839848035,180571113.56119072,0.035816546762589919
@@ -2849,48 +2860,6 @@ AliasID1=21
 Page="PRESELECTOR"
 Pos=179999999.99999997,0.0030129046256477804,180566703.41786107,0.021485611510791362
 Font=Height=-15,FStyle=0,Color=#FF0000,Name=Arial
-Format=3
-FormatY=3
-
-[AObject]
-Analysis=Transient
-Object=Tag
-Locked=True
-EndPoint=ArrowF
-CBorder=#000080
-w=8
-AliasID1=9
-Page="RFA"
-Pos=179999999.99999997,0.0028375057314965492,180581343.69794556,0.012246835443037996
-Font=Height=-15,FStyle=0,Color=#FF0000,Name=Arial
-Format=3
-FormatY=3
-
-[AObject]
-Analysis=Transient
-Object=Tag
-Locked=True
-EndPoint=ArrowF
-CBorder=#000080
-w=20
-AliasID1=15
-Page="MIXER"
-Pos=179999999.99999997,0.00089805994271868479,180115171.65005535,0.016187050359712251
-Font=Height=-15,FStyle=0,Color=#FF00FF,Name=Arial
-Format=3
-FormatY=3
-
-[AObject]
-Analysis=Transient
-Object=Tag
-Locked=True
-EndPoint=ArrowF
-CBorder=#000080
-w=19
-AliasID1=13
-Page="MIXER"
-Pos=179999999.99999997,0.095514576973515633,179931339.9778516,0.10899280575539569
-Font=Height=-15,FStyle=0,Color=#008000,Name=Arial
 Format=3
 FormatY=3
 
@@ -2942,39 +2911,11 @@ Object=Tag
 Locked=True
 EndPoint=ArrowF
 CBorder=#000080
-w=21
+w=23
 AliasID1=14
-Page="MIXER2"
+Page="MIXER OUT"
 Pos=19999999.999999996,0.18874979379691373,20483065.953654189,0.1182038834951456
 Font=Height=-15,FStyle=0,Color=#FF00FF,Name=Arial
-Format=3
-FormatY=3
-
-[AObject]
-Analysis=Transient
-Object=Tag
-Locked=True
-EndPoint=ArrowF
-CBorder=#000080
-w=18
-AliasID1=12
-Page="MIXER"
-Pos=199999999.99999997,0.14999996117602138,194555924.6954596,0.13046218487394959
-Font=Height=-15,FStyle=0,Color=#FF0000,Name=Arial
-Format=3
-FormatY=3
-
-[AObject]
-Analysis=Transient
-Object=Tag
-Locked=True
-EndPoint=ArrowF
-CBorder=#000080
-w=19
-AliasID1=13
-Page="MIXER"
-Pos=179999999.99999997,0.14999997478444752,180176079.73421925,0.1552941176470588
-Font=Height=-15,FStyle=0,Color=#008000,Name=Arial
 Format=3
 FormatY=3
 
@@ -3212,6 +3153,51 @@ Object=Tag
 Locked=True
 EndPoint=ArrowF
 CBorder=#000080
+w=1
+AliasID1=2
+Page="RFA"
+Pos=174097530.29273218,3.5399999999999983,155899280.57553956,4.2718446601941755
+Font=Height=-15,FStyle=0,Color=#FF0000,Name=Arial
+Format=3
+FormatY=3
+Branch=0
+
+[AObject]
+Analysis=AC
+Object=Tag
+Locked=True
+EndPoint=ArrowF
+CBorder=#000080
+w=1
+AliasID1=2
+Page="RFA"
+Pos=186075420.74041113,3.539999999999996,186546762.58992806,4.2961165048543695
+Font=Height=-15,FStyle=0,Color=#FF0000,Name=Arial
+Format=3
+FormatY=3
+Branch=0
+
+[AObject]
+Analysis=AC
+Object=Tag
+Locked=True
+EndPoint=ArrowF
+CBorder=#000080
+w=1
+AliasID1=2
+Page="RFA"
+Pos=179912929.5987677,4.9989999999999997,180979325.35364524,5.4739336492891004
+Font=Height=-15,FStyle=0,Color=#FF0000,Name=Arial
+Format=3
+FormatY=3
+Branch=0
+
+[AObject]
+Analysis=AC
+Object=Tag
+Locked=True
+EndPoint=ArrowF
+CBorder=#000080
 w=0
 AliasID1=1
 Page="IC"
@@ -3230,7 +3216,7 @@ CBorder=#000080
 w=0
 AliasID1=1
 Page="IC"
-Pos=184331769.83458054,-3.4237999999999986,215131195.33527699,-9.4368932038834927
+Pos=184331769.83458054,-3.4237999999999986,216042692.93924463,-9.3466872110939896
 Font=Height=-15,FStyle=0,Color=#0000FF,Name=Arial
 Format=3
 FormatY=3
@@ -3724,10 +3710,10 @@ AliasID=9
 XExp=F
 YExp=harm(v(AC1))
 XRng=181e6,179e6
-YRng=40m, 0
+YRng=110m, 0
 Options=LINEARX,LINEARY
 Range Grid X=100e3
-Range Grid Y=10m
+Range Grid Y=20m
 Enable=Enable
 CS=Popsicle
 Line Color=#FF0000
@@ -3752,10 +3738,10 @@ AliasID=10
 XExp=F
 YExp=harm(v(RFA))
 XRng=181e6,179e6
-YRng=40m, 0
+YRng=110m, 0
 Options=LINEARX,LINEARY
 Range Grid X=100e3
-Range Grid Y=10m
+Range Grid Y=20m
 Enable=Enable
 CS=Popsicle
 Line Color=#000000
@@ -3832,7 +3818,7 @@ Plt=1
 Page=BUF1
 AliasID=17
 XExp=T
-YExp=v(BUF1)
+YExp=v(BUF)
 XRng=AutoAlways
 YRng=AutoAlways
 Options=LINEARX,LINEARY
@@ -3886,7 +3872,7 @@ Plt=2
 Page=BUF1
 AliasID=19
 XExp=F
-YExp=harm(v(BUF1))
+YExp=harm(v(BUF))
 XRng=181e6,179e6
 YRng=110m, 0
 Options=LINEARX,LINEARY
@@ -3941,17 +3927,15 @@ Analysis=Transient
 Plt=1
 Page=PRESELECTOR
 AliasID=21
-XExp=F
-YExp=harm(v(AC))
-XRng=181e6,179e6
-YRng=40m, 0
+XExp=T
+YExp=v(AC)
+XRng=AutoAlways
+YRng=AutoAlways
 Options=LINEARX,LINEARY
-Range Grid X=100e3
-Range Grid Y=10m
 Enable=Enable
-CS=Popsicle
-Line Color=#FF0000
-Text Color=#FF0000
+CS=Normal
+Line Color=#000000
+Text Color=#000000
 Rainbow=False
 VFmtX=3
 VFmtY=3
@@ -3968,18 +3952,16 @@ NOFmtY=3E
 Analysis=Transient
 Plt=1
 Page=PRESELECTOR
-AliasID=22
-XExp=F
-YExp=harm(v(BUF1))
-XRng=181e6,179e6
-YRng=40m, 0
+AliasID=24
+XExp=T
+YExp=v(BUF)
+XRng=AutoAlways
+YRng=AutoAlways
 Options=LINEARX,LINEARY
-Range Grid X=100e3
-Range Grid Y=10m
 Enable=Enable
-CS=Popsicle
-Line Color=#008000
-Text Color=#008000
+CS=Normal
+Line Color=#FF0000
+Text Color=#FF0000
 Rainbow=False
 VFmtX=3
 VFmtY=3
@@ -3994,14 +3976,44 @@ NOFmtY=3E
 
 [WaveForm]
 Analysis=Transient
-Plt=1
-Page=MIXER
-AliasID=12
+Plt=2
+Page=PRESELECTOR
+AliasID=23
 XExp=F
-YExp=harm(v(GET1, GET2))
+YExp=harm(v(AC))
 XRng=181e6,179e6
-YRng=150m, 0
+YRng=40m, 0
 Options=LINEARX,LINEARY
+Range Grid X=100e3
+Range Grid Y=10m
+Enable=Enable
+CS=Popsicle
+Line Color=#000000
+Text Color=#000000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=2
+Page=PRESELECTOR
+AliasID=22
+XExp=F
+YExp=harm(v(BUF))
+XRng=181e6,179e6
+YRng=40m, 0
+Options=LINEARX,LINEARY
+Range Grid X=100e3
+Range Grid Y=10m
 Enable=Enable
 CS=Popsicle
 Line Color=#FF0000
@@ -4021,17 +4033,17 @@ NOFmtY=3E
 [WaveForm]
 Analysis=Transient
 Plt=1
-Page=MIXER
-AliasID=13
-XExp=F
-YExp=harm(v(BUF1))
-XRng=181e6,179e6
-YRng=150m, 0
+Page=MIXER IN
+AliasID=12
+XExp=T
+YExp=v(BUF1)
+XRng=AutoAlways
+YRng=AutoAlways
 Options=LINEARX,LINEARY
 Enable=Enable
-CS=Popsicle
-Line Color=#008000
-Text Color=#008000
+CS=Normal
+Line Color=#000000
+Text Color=#000000
 Rainbow=False
 VFmtX=3
 VFmtY=3
@@ -4046,8 +4058,34 @@ NOFmtY=3E
 
 [WaveForm]
 Analysis=Transient
-Plt=1
-Page=MIXER
+Plt=2
+Page=MIXER IN
+AliasID=13
+XExp=F
+YExp=harm(v(BUF1))
+XRng=181e6,179e6
+YRng=150m, 0
+Options=LINEARX,LINEARY
+Enable=Enable
+CS=Popsicle
+Line Color=#000000
+Text Color=#000000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=2
+Page=MIXER IN
 AliasID=15
 XExp=F
 YExp=harm(i(Rmix))
@@ -4073,18 +4111,44 @@ NOFmtY=3E
 [WaveForm]
 Analysis=Transient
 Plt=1
-Page=MIXER2
+Page=MIXER OUT
 AliasID=14
+XExp=T
+YExp=v(MIXER)
+XRng=AutoAlways
+YRng=AutoAlways
+Options=LINEARX,LINEARY
+Enable=Enable
+CS=Normal
+Line Color=#000000
+Text Color=#000000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=2
+Page=MIXER OUT
+AliasID=25
 XExp=F
 YExp=harm(v(MIXER))
 XRng=21e6,19e6
-YRng=150m, 0
+YRng=200m, 0
 Options=LINEARX,LINEARY
 Range Grid X=100e3
 Enable=Enable
 CS=Popsicle
-Line Color=#FF00FF
-Text Color=#FF00FF
+Line Color=#000000
+Text Color=#000000
 Rainbow=False
 VFmtX=3
 VFmtY=3
@@ -4310,7 +4374,7 @@ TextPx=16,116
 
 [Pane]
 Analysis=Transient
-CurrentPage 0="RFA"
+CurrentPage 0="MIXER OUT"
 
 [Pane]
 Analysis=AC
