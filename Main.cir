@@ -7,8 +7,8 @@ Shape Version=11.00
 Screen=1920,1080
 MCAPVersion=12.2.0.5
 Key ID=Demo
-NLCnt=220
-TXCnt=10
+NLCnt=277
+TXCnt=12
 
 [shapedef]
 Name=Battery
@@ -281,7 +281,7 @@ Name=Ground
 Definition=Ground
 Shape=Ground
 Mask=257
-Used=521
+Used=545
 memo=Ground
 Label Offset=0,0,0,0
 PinCnt=1
@@ -292,7 +292,7 @@ Name=Resistor
 Definition=Resistor
 Shape=Resistor
 Mask=6401
-Used=354
+Used=372
 memo=Resistor
 Label Offset=18,6,8,11
 PinCnt=2
@@ -304,7 +304,7 @@ Name=Inductor
 Definition=Inductor
 Shape=Inductor
 Mask=6145
-Used=87
+Used=95
 memo=Inductor
 Label Offset=18,9,11,12
 PinCnt=2
@@ -316,7 +316,7 @@ Name=Capacitor
 Definition=Capacitor
 Shape=Capacitor
 Mask=6145
-Used=162
+Used=182
 memo=Capacitor
 Label Offset=16,12,12,12
 PinCnt=2
@@ -341,7 +341,7 @@ Name=Battery
 Definition=Battery
 Shape=Battery
 Mask=6145
-Used=100
+Used=108
 memo=Battery
 Label Offset=19,7,10,13
 PinCnt=2
@@ -392,6 +392,20 @@ Pin="1M",a,0,6,-6,17
 Pin="2P",a,6,0,-4,-3
 Pin="2M",a,6,6,-6,17
 
+[compdef]
+Name=NMOS1
+Definition=NMOS
+Shape=NMOS
+Mask=5632
+Used=46
+memo=NMOS
+Label Offset=29,1,7,25
+PinCnt=4
+Pin="Drain",3,-3,8,9
+Pin="Gate",0,0,-20,-4
+Pin="Source",3,3,8,4
+Pin="Body",3,0,8,-1
+
 [Circuit]
 Window Placement=2,3, -1,-1, -8,-31, 0,0,775,323
 Default Object=Color=#000080
@@ -412,8 +426,8 @@ SpiceType=AMBIGUOUS
 Title_Block_Border=None
 Title_Block=False
 Show Nodes=False
-Show Voltages=False
-Show Current=False
+Show Voltages=True
+Show Current=True
 Show Power=False
 Show Condition=False
 Show Pin Connections=False
@@ -1635,6 +1649,7 @@ Pxs=3288,656,3288,680
 
 [Comp]
 Name=Voltage Source
+Enable=FALSE
 Px=2392,400
 Rot=3
 
@@ -1658,6 +1673,7 @@ Style=256
 
 [Wire]
 Pxs=2392,400,2392,424
+Enable=FALSE
 
 [Wire]
 Pxs=2392,424,2416,424
@@ -1667,9 +1683,11 @@ Pxs=2392,312,2408,312
 
 [Wire]
 Pxs=2392,312,2392,352
+Enable=FALSE
 
 [Comp]
 Name=Voltage Source
+Enable=FALSE
 Px=2392,576
 Rot=3
 
@@ -2063,9 +2081,6 @@ Style=256
 Pxs=1776,448,1824,448
 
 [Wire]
-Pxs=2408,312,2480,312
-
-[Wire]
 Pxs=2416,424,2480,424
 
 [Wire]
@@ -2097,7 +2112,7 @@ Pxs=3392,232,3408,232
 Pxs=3392,184,3408,184
 
 [Wire]
-Pxs=2208,480,2216,480
+Pxs=2112,480,2216,480
 
 [Wire]
 Pxs=992,488,1080,488
@@ -2107,12 +2122,478 @@ Pxs=1640,448,1760,448
 
 [Wire]
 Pxs=2392,480,2392,528
+Enable=FALSE
 
 [Wire]
 Pxs=2392,480,2432,480
 
 [Wire]
 Pxs=2216,480,2392,480
+
+[Comp]
+Name=Resistor
+Px=2032,48
+Rot=1
+COff=7,2039,64,-4,31
+
+[Attr]
+ON=8,11,PART
+V=R22
+
+[Attr]
+ON=7,16,RESISTANCE
+V=Rp
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Capacitor
+Px=2064,48
+Rot=1
+COff=7,2073,63,6,4
+
+[Attr]
+ON=12,12,PART
+V=C10
+
+[Attr]
+ON=9,15,CAPACITANCE
+V=Cp
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Capacitor
+Px=2104,48
+Rot=1
+COff=7,2114,63,-1,6
+
+[Attr]
+ON=12,12,PART
+V=C11
+
+[Attr]
+ON=10,15,CAPACITANCE
+V=Cs
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Resistor
+Px=2136,48
+Rot=1
+COff=7,2141,63,9,-28
+
+[Attr]
+ON=8,11,PART
+V=R23
+
+[Attr]
+ON=5,15,RESISTANCE
+V=Rs
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Inductor
+Px=2136,96
+Rot=1
+
+[Attr]
+ON=11,12,PART
+V=L5
+
+[Attr]
+ON=8,16,INDUCTANCE
+V=Lg
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Battery
+Px=2176,96
+Rot=5
+COff=7,2186,55,-34,12
+
+[Attr]
+ON=10,-27,PART
+V=V4
+Style=8192
+
+[Attr]
+ON=10,-41,VALUE
+V=1.5
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Ground
+Px=2176,96
+Rot=1
+
+[Comp]
+Name=Resistor
+Px=2216,48
+Rot=1
+COff=7,2220,63,-27,27
+
+[Attr]
+ON=8,11,PART
+V=R3
+
+[Attr]
+ON=4,15,RESISTANCE
+V=Rs
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Inductor
+Px=2216,96
+Rot=1
+
+[Attr]
+ON=11,12,PART
+V=L2
+
+[Attr]
+ON=7,16,INDUCTANCE
+V=Lg
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Capacitor
+Px=2248,48
+Rot=1
+COff=7,2257,64,-20,-6
+
+[Attr]
+ON=12,12,PART
+V=C3
+
+[Attr]
+ON=9,16,CAPACITANCE
+V=Cs
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Capacitor
+Px=2288,48
+Rot=1
+COff=7,2297,63,-22,-6
+
+[Attr]
+ON=12,12,PART
+V=C12
+
+[Attr]
+ON=9,15,CAPACITANCE
+V=Cp
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Resistor
+Px=2320,48
+Rot=1
+COff=7,2326,64,-36,26
+
+[Attr]
+ON=8,11,PART
+V=R24
+
+[Attr]
+ON=6,16,RESISTANCE
+V=Rp
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Capacitor
+Px=2152,144
+COff=8,2168,156,-9,-15
+COff=7,2168,120,29,-65
+
+[Attr]
+ON=16,12,PART
+V=C13
+
+[Attr]
+ON=16,-24,CAPACITANCE
+V=Cg
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=NMOS1
+Px=2160,208
+Rot=6
+COff=8,2136,184,-53,-3
+COff=8,2136,232,-55,-9
+COff=8,2136,208,15,-25
+COff=23,2160,219,-23,-47
+
+[Attr]
+ON=-9,-18,PART
+V=M9
+Style=8192
+
+[Attr]
+ON=-47,15,MODEL
+V=M1
+
+[Attr]
+ON=0,0,PACKAGE
+V=TO-236AB
+
+[Attr]
+ON=0,11,USER1
+V
+
+[Comp]
+Name=NMOS1
+Px=2192,208
+COff=8,2216,184,26,-1
+COff=8,2216,232,-3,-25
+COff=8,2216,208,-51,-41
+COff=23,2192,219,6,-38
+
+[Attr]
+ON=-8,-18,PART
+V=M10
+Style=8192
+
+[Attr]
+ON=-47,15,MODEL
+V=M1
+
+[Attr]
+ON=0,0,PACKAGE
+V=TO-236AB
+
+[Attr]
+ON=0,11,USER1
+V
+
+[Comp]
+Name=NMOS1
+Px=2152,256
+COff=8,2152,256,-18,15
+COff=8,2176,232,16,-3
+COff=8,2176,280,12,-7
+COff=8,2176,256,26,-11
+COff=23,2152,267,17,1
+
+[Attr]
+ON=-9,-17,PART
+V=M11
+Style=8192
+
+[Attr]
+ON=-47,15,MODEL
+V=M2
+
+[Attr]
+ON=0,0,PACKAGE
+V=TO-236AB
+
+[Attr]
+ON=0,11,USER1
+V
+
+[Comp]
+Name=Ground
+Px=2176,280
+Rot=1
+
+[Comp]
+Name=Ground
+Px=2176,256
+Rot=4
+
+[Comp]
+Name=Ground
+Px=2216,208
+Rot=4
+
+[Comp]
+Name=Ground
+Px=2136,208
+Rot=6
+
+[Comp]
+Name=Battery
+Px=2136,304
+Rot=5
+COff=7,2101,261,-35,-5
+
+[Attr]
+ON=-28,-28,PART
+V=V2
+Style=8192
+
+[Attr]
+ON=-35,-43,VALUE
+V=U_cm
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Wire]
+Pxs=2136,256,2152,256
+
+[Comp]
+Name=Ground
+Px=2136,304
+Rot=1
+
+[Wire]
+Pxs=2216,168,2224,168
+
+[Wire]
+Pxs=2032,48,2064,48
+
+[Wire]
+Pxs=2064,48,2104,48
+
+[Wire]
+Pxs=2104,48,2136,48
+
+[Wire]
+Pxs=2136,48,2176,48
+
+[Wire]
+Pxs=2176,48,2216,48
+
+[Wire]
+Pxs=2216,48,2248,48
+
+[Wire]
+Pxs=2248,48,2288,48
+
+[Wire]
+Pxs=2288,48,2320,48
+
+[Wire]
+Pxs=2032,96,2032,144
+
+[Wire]
+Pxs=2032,144,2064,144
+
+[Wire]
+Pxs=2136,144,2152,144
+
+[Wire]
+Pxs=2200,144,2216,144
+
+[Wire]
+Pxs=2320,96,2320,144
+
+[Wire]
+Pxs=2216,144,2248,144
+
+[Wire]
+Pxs=2288,96,2288,144
+
+[Wire]
+Pxs=2288,144,2320,144
+
+[Wire]
+Pxs=2248,96,2248,144
+
+[Wire]
+Pxs=2248,144,2288,144
+
+[Wire]
+Pxs=2104,96,2104,144
+
+[Wire]
+Pxs=2104,144,2136,144
+
+[Wire]
+Pxs=2064,96,2064,144
+
+[Wire]
+Pxs=2064,144,2104,144
+
+[Wire]
+Pxs=2136,144,2136,168
+
+[Wire]
+Pxs=2216,144,2216,168
+
+[Wire]
+Pxs=2136,232,2176,232
+
+[Wire]
+Pxs=2176,232,2216,232
+
+[Wire]
+Pxs=2160,208,2216,168
+
+[Wire]
+Pxs=2216,168,2216,184
+
+[Wire]
+Pxs=2192,208,2136,168
+
+[Wire]
+Pxs=2136,168,2136,184
+
+[Wire]
+Pxs=2224,168,2280,168
+
+[Wire]
+Pxs=2080,168,2136,168
+
+[Object]
+Object=Rectangle
+Weight=2
+CBorder=#000000
+Px=2022,15,2347,326
+
+[Wire]
+Pxs=2408,312,2480,312
 
 [Grid Text]
 Text="AC"
@@ -2155,15 +2636,7 @@ JustifyV=Bottom
 CBorder=None
 
 [Grid Text]
-Text="GET1"
-Px=2408,312
-GridSnap=True
-JustifyH=Left
-JustifyV=Bottom
-CBorder=None
-
-[Grid Text]
-Text="GET2"
+Text="GET_out2"
 Px=2416,424
 GridSnap=True
 JustifyH=Left
@@ -2189,6 +2662,30 @@ CBorder=None
 [Grid Text]
 Text="BUF1"
 Px=2216,480
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="GET_out1"
+Px=2224,168
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="GET_out2"
+Px=2080,168
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="GET_out1"
+Px=2408,312
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -2390,9 +2887,9 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-SB 3=833,264
+SB 3=1921,47
 Scale 3=1
-Px=1490,702
+Px=2137,569
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -2456,6 +2953,7 @@ Type=Text
 Print=False
 Enable=True
 Name=Models
+SB 0=0,27
 Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
 Comment Color=#008000
 WinBackGround Color=#FFFFFF
@@ -2486,7 +2984,7 @@ Text=.define Rp 1.508769e+06
 Text=.define Cp 2.656137e-17
 Text=.define Cs 4.050191e-14
 Text=.define Rs 4.040000e-02
-Text=.define Cg 3.163018e-10 * 0.99
+Text=.define Cg 3.163018e-10 * 0.9533
 Text=.define Lg 1.000000e-09
 Text=.define U_cm 0.615
 Text=.define w1 2.698321e-03
@@ -2579,7 +3077,7 @@ WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
 Select Box Color=#000080
-Title=Main.cir PRESELECTOR
+Title=Main.cir MIXER OUT
 AutoTitle=Yes
 Grid Color=#808080
 Grid Weight=1
@@ -2615,8 +3113,8 @@ Tracker Cursor=True
 Tracker Cursor BranchInfo=False
 Horizontal Cursor=False
 Same Y Scales=Yes
-Enable X Scaling=False
-Enable Y Scaling=True
+Enable X Scaling=True
+Enable Y Scaling=False
 Keep X Scales The Same=True
 Number of Grids X=5
 Number of Grids Y=5
@@ -2633,7 +3131,7 @@ PSS_Periods="1"
 PSS_Iterations="5"
 PSS_Error="1u"
 PSS_ShowPlots=True
-FFT_NPts="8192"
+FFT_NPts="524288"
 FFT_IncludeDCHarmonic=False
 FFT_AutoScale_Harmonics="10"
 PrinterAutoTile=No
@@ -3476,7 +3974,7 @@ Seed=0
 
 [Limits]
 Analysis=Transient
-TMax=1/50k
+TMax=40u
 TStart=0
 TStep=1/200Meg/100
 NPts=5100
