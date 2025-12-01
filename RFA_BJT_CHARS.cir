@@ -5,7 +5,7 @@ Program=Micro-Cap
 Component Version=10.00
 Shape Version=11.00
 Screen=1920,1080
-MCAPVersion=12.2.0.5
+MCAPVersion=12.2.0.3
 Key ID=Demo
 NLCnt=17
 TXCnt=0
@@ -97,8 +97,8 @@ Current=32,16,16,16
 Name=NPN
 Definition=NPN
 Shape=NPN
-Mask=4097
-Used=28
+Mask=5633
+Used=11
 memo=NPN Transistor
 Label Offset=37,-17,-14,33
 PinCnt=3
@@ -110,8 +110,8 @@ Pin="Emitter",3,3,5,1
 Name=Ground
 Definition=Ground
 Shape=Ground
-Mask=257
-Used=521
+Mask=1793
+Used=257
 memo=Ground
 Label Offset=0,0,0,0
 PinCnt=1
@@ -121,8 +121,8 @@ Pin="PinA",0,0,-3,-7
 Name=Current Source
 Definition=ISpice
 Shape=SPICE_I
-Mask=7169
-Used=7
+Mask=7681
+Used=1
 memo=Current Source
 Label Offset=15,12,-29,12
 PinCnt=2
@@ -134,7 +134,7 @@ Name=Voltage Source
 Definition=VSpice
 Shape=SPICE_V
 Mask=4865
-Used=90
+Used=38
 memo=Voltage Source
 Label Offset=19,13,15,13
 PinCnt=2
@@ -145,8 +145,8 @@ Pin="Minus",0,0,-20,-6
 Name=Resistor
 Definition=Resistor
 Shape=Resistor
-Mask=6401
-Used=354
+Mask=6913
+Used=150
 memo=Resistor
 Label Offset=18,6,8,11
 PinCnt=2
@@ -167,7 +167,7 @@ PathDelayFormat=3
 WarningFormat=3
 GridTextFormulaFormat=3
 Window Placement in Transient Analysis=2,3, -1,-1, -8,-31, 208,208,1859,730
-Window Placement in DC Analysis=2,3, -1,-1, -8,-31, 130,130,1781,652
+Window Placement in DC Analysis=2,3, -1,-1, -8,-31, 972,187,1551,709
 SpiceType=AMBIGUOUS
 Title_Block_Border=None
 Title_Block=False
@@ -308,7 +308,6 @@ Style=256
 
 [Wire]
 Pxs=520,272,520,312
-Enable=FALSE
 
 [Wire]
 Pxs=800,152,800,264
@@ -395,6 +394,7 @@ Pxs=440,272,520,272
 
 [Wire]
 Pxs=440,272,440,296
+Enable=FALSE
 
 [Wire]
 Pxs=520,272,592,272
@@ -597,7 +597,7 @@ Scale 1=1
 Scale 2=1
 SB 3=358,97
 Scale 3=0.5
-Px=467,398
+Px=441,286
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -947,7 +947,7 @@ ALIGNBOTTOM=Yes
 
 [DC]
 WinID=3
-Window Placement=2,3, -1,-1, -8,-31, 130,130,1781,652
+Window Placement=2,3, -1,-1, -8,-31, 972,187,1551,709
 Font=Height=-19,FStyle=0,Color=#0000FF,Name=Arial
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
@@ -989,7 +989,7 @@ Tracker Cursor=True
 Tracker Cursor BranchInfo=False
 Horizontal Cursor=False
 Same Y Scales=Yes
-Enable X Scaling=True
+Enable X Scaling=False
 Enable Y Scaling=True
 Keep X Scales The Same=True
 Number of Grids X=5
@@ -1167,51 +1167,6 @@ Name="TRANSFER"
 Analysis=DC
 Name="IN"
 
-[AObject]
-Analysis=DC
-Object=Tag
-Locked=True
-EndPoint=ArrowF
-CBorder=#000080
-w=2
-AliasID1=3
-Page="IN"
-Pos=0.60470000000000002,1.5741108416733354e-006,0.45142326655815979,5.4776579352850756e-007
-Font=Height=-15,FStyle=0,Color=#008000,Name=Arial
-Format=3
-FormatY=3
-Branch=0
-
-[AObject]
-Analysis=DC
-Object=Tag
-Locked=True
-EndPoint=ArrowF
-CBorder=#000080
-w=1
-AliasID1=2
-Page="TRANSFER"
-Pos=0.60472251742174654,0.0030000000000000001,0.61576354679802958,0.0033175355450236967
-Font=Height=-15,FStyle=0,Color=#FF0000,Name=Arial
-Format=3
-FormatY=3
-Branch=0
-
-[AObject]
-Analysis=DC
-Object=Tag
-Locked=True
-EndPoint=ArrowF
-CBorder=#000080
-w=0
-AliasID1=1
-Page="OUT"
-Pos=0.75,0.0011824372880830936,0.72470653305784305,0.00094052388289676662
-Font=Height=-15,FStyle=0,Color=#0000FF,Name=Arial
-Format=3
-FormatY=3
-Branch=0
-
 [Monte Carlo Options]
 Analysis=Transient
 Status=Off
@@ -1314,7 +1269,7 @@ NOFmtY=3E
 [Limits]
 Analysis=DC
 I1Range=1.5,0,0.001
-I1=VBE
+I1=VCE
 NPts=5100
 Temp=27
 MaxChng=5
@@ -1334,9 +1289,10 @@ AliasID=1
 XExp=v(Vce)
 YExp=-i(Rc)
 XRng=1.5,0
-YRng=AutoAlways
+YRng=2m, 0
 Options=LINEARX,LINEARY
 Range Grid X=0.1
+Range Grid Y=.4m
 Enable=Enable
 Line Color=#0000FF
 Text Color=#0000FF
@@ -1386,7 +1342,7 @@ Page=IN
 AliasID=3
 XExp=v(Vbe)
 YExp=i(Rb)
-XRng=0.6,0.4
+XRng=.7,0.4
 YRng=1u,0
 Options=LINEARX,LINEARY
 Range Grid Y=100n
@@ -1425,7 +1381,7 @@ Analysis=AC
 
 [Pane]
 Analysis=DC
-CurrentPage 0="IN"
+CurrentPage 0="OUT"
 
 [Pane]
 Analysis=HmDistortion
@@ -1440,12 +1396,13 @@ Analysis=Stability
 Analysis=DC
 Index=1
 Simultaneous=Yes
+Status=On
 Parameter Type=Component
 Name=IB
 Param=dc.value
-From=0
-To=2u
-Value=50n
+From=100n
+To=800n
+Value=100n
 
 [Stepping]
 Analysis=DC
