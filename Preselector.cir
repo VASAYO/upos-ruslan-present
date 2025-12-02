@@ -7,7 +7,7 @@ Shape Version=11.00
 Screen=1920,1080
 MCAPVersion=12.2.0.3
 Key ID=Demo
-NLCnt=106
+NLCnt=107
 TXCnt=6
 
 [shapedef]
@@ -128,7 +128,7 @@ Name=Voltage Source
 Definition=VSpice
 Shape=SPICE_V
 Mask=4865
-Used=41
+Used=38
 memo=Voltage Source
 Label Offset=19,13,15,13
 PinCnt=2
@@ -140,7 +140,7 @@ Name=Ground
 Definition=Ground
 Shape=Ground
 Mask=1793
-Used=270
+Used=257
 memo=Ground
 Label Offset=0,0,0,0
 PinCnt=1
@@ -151,7 +151,7 @@ Name=Resistor
 Definition=Resistor
 Shape=Resistor
 Mask=6913
-Used=163
+Used=151
 memo=Resistor
 Label Offset=18,6,8,11
 PinCnt=2
@@ -163,7 +163,7 @@ Name=Inductor
 Definition=Inductor
 Shape=Inductor
 Mask=7681
-Used=30
+Used=28
 memo=Inductor
 Label Offset=18,9,11,12
 PinCnt=2
@@ -175,7 +175,7 @@ Name=Capacitor
 Definition=Capacitor
 Shape=Capacitor
 Mask=7425
-Used=29
+Used=22
 memo=Capacitor
 Label Offset=16,12,12,12
 PinCnt=2
@@ -187,7 +187,7 @@ Name=NPN
 Definition=NPN
 Shape=NPN
 Mask=5633
-Used=13
+Used=11
 memo=NPN Transistor
 Label Offset=37,-17,-14,33
 PinCnt=3
@@ -200,7 +200,7 @@ Name=Battery
 Definition=Battery
 Shape=Battery
 Mask=7937
-Used=53
+Used=51
 memo=Battery
 Label Offset=19,7,10,13
 PinCnt=2
@@ -338,7 +338,7 @@ Style=8192
 
 [Attr]
 ON=9,-13,INDUCTANCE
-V=2.11n
+V=IC_Lk
 Style=8192
 
 [Attr]
@@ -357,7 +357,7 @@ Style=8192
 
 [Attr]
 ON=16,25,CAPACITANCE
-V=371.4p
+V=IC_Ck
 Style=8192
 
 [Attr]
@@ -1022,7 +1022,7 @@ ON=0,0,PACKAGE
 V
 
 [Wire]
-Pxs=1512,232,1568,232
+Pxs=1512,232,1544,232
 
 [Comp]
 Name=Battery
@@ -1160,6 +1160,9 @@ Enable=FALSE
 [Wire]
 Pxs=448,240,536,240
 
+[Wire]
+Pxs=1544,232,1568,232
+
 [Grid Text]
 Text="AC"
 Px=136,240
@@ -1202,7 +1205,7 @@ CBorder=None
 
 [Grid Text]
 Text="BUF2"
-Px=1512,232
+Px=1544,232
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -1404,9 +1407,8 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-SB 3=31,0
 Scale 3=1
-Px=892,466
+Px=1536,290
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -1496,6 +1498,10 @@ Search Color=#FFFF00
 [Text Area]
 Section=0
 Page=1
+Text=* Input circuit defines
+Text=.define IC_Ck 3.713615338810892e-10
+Text=.define IC_Lk 2.105224114972160e-09
+Text=
 Text=* RF amplifier defines
 Text=.define RFA_Ck 2.574808669340683e-11
 Text=.define RFA_Lk 3.036339227099585e-08
@@ -1532,7 +1538,7 @@ WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
 Select Box Color=#000080
-Title=Preselector.cir
+Title=Preselector.cir PRESELECTOR
 AutoTitle=Yes
 Grid Color=#808080
 Grid Weight=1
@@ -1591,7 +1597,7 @@ FFT_IncludeDCHarmonic=False
 FFT_AutoScale_Harmonics="10"
 PrinterAutoTile=No
 PrinterBlackBorder=No
-MonMaxShow=14
+MonMaxShow=18
 MonPageWidth=66
 MonPlotWidth=21
 MonExprXWidth=142
@@ -1762,6 +1768,10 @@ Name="RFA"
 Analysis=Transient
 Name="BUFFER2"
 
+[APage]
+Analysis=Transient
+Name="PRESELECTOR"
+
 [AC]
 WinID=2
 Window Placement=2,3, -1,-1, -8,-31, 52,52,1703,620
@@ -1822,7 +1832,7 @@ FFT_IncludeDCHarmonic=False
 FFT_AutoScale_Harmonics="10"
 PrinterAutoTile=No
 PrinterBlackBorder=No
-MonMaxShow=3
+MonMaxShow=4
 MonPageWidth=66
 MonPlotWidth=21
 MonExprXWidth=142
@@ -1989,6 +1999,10 @@ Name="RFA"
 [APage]
 Analysis=AC
 Name="BUF"
+
+[APage]
+Analysis=AC
+Name="PRESELECTOR"
 
 [Monte Carlo Options]
 Analysis=Transient
@@ -2434,7 +2448,7 @@ Plt=2
 Page=BUFFER2
 AliasID=16
 XExp=F
-YExp=harm(v(Cbuf))
+YExp=harm(i(Cbuf))
 XRng=180.5Meg, 179.5Meg
 YRng=110m, 0
 Options=LINEARX,LINEARY
@@ -2456,9 +2470,117 @@ SFmtY=2
 NOFmtX=3E
 NOFmtY=3E
 
+[WaveForm]
+Analysis=Transient
+Plt=1
+Page=PRESELECTOR
+AliasID=17
+XExp=T
+YExp=v(AC)
+XRng=AutoAlways
+YRng=AutoAlways
+Options=LINEARX,LINEARY
+Enable=Enable
+CS=Normal
+Line Color=#000000
+Text Color=#000000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=1
+Page=PRESELECTOR
+AliasID=18
+XExp=T
+YExp=v(BUF2)
+XRng=AutoAlways
+YRng=AutoAlways
+Options=LINEARX,LINEARY
+Enable=Enable
+CS=Normal
+Line Color=#FF0000
+Text Color=#FF0000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=2
+Page=PRESELECTOR
+AliasID=19
+XExp=F
+YExp=harm(v(AC))
+XRng=180.5Meg, 179.5Meg
+YRng=110m, 0
+Options=LINEARX,LINEARY
+Range Grid X=0.2Meg
+Range Grid Y=20m
+Enable=Enable
+CS=Popsicle
+Line Color=#000000
+Text Color=#000000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=Transient
+Plt=2
+Page=PRESELECTOR
+AliasID=20
+XExp=F
+YExp=harm(v(BUF2))
+XRng=180.5Meg, 179.5Meg
+YRng=110m, 0
+Options=LINEARX,LINEARY
+Range Grid X=0.2Meg
+Range Grid Y=20m
+Enable=Enable
+CS=Popsicle
+Line Color=#FF0000
+Text Color=#FF0000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
 [Limits]
 Analysis=AC
-FRange=200Meg,160Meg
+FRange=300Meg,100Meg
 NPts=100100
 Temp=27
 MaxChng=5
@@ -2481,13 +2603,13 @@ Page=IC
 AliasID=1
 XExp=F
 YExp=dB(v(IC)/v(AC))
-XRng=200Meg,160Meg
+XRng=230Meg,160Meg
 YRng=AutoAlways
 Options=LINEARX,LINEARY
 Range Grid X=5Meg
 Enable=Enable
-Line Color=#0000FF
-Text Color=#0000FF
+Line Color=#000000
+Text Color=#000000
 Rainbow=False
 VFmtX=3
 VFmtY=3
@@ -2506,14 +2628,14 @@ Plt=1
 Page=RFA
 AliasID=2
 XExp=F
-YExp=(v(RFA)/v(IC1))
-XRng=200Meg,160Meg
+YExp=db(v(RFA)/v(IC1))
+XRng=230Meg,160Meg
 YRng=AutoAlways
 Options=LINEARX,LINEARY
 Range Grid X=5Meg
 Enable=Enable
-Line Color=#FF0000
-Text Color=#FF0000
+Line Color=#000000
+Text Color=#000000
 Rainbow=False
 VFmtX=3
 VFmtY=3
@@ -2532,14 +2654,41 @@ Plt=1
 Page=BUF
 AliasID=3
 XExp=F
-YExp=(v(BUF2)/v(RFA1))
-XRng=200Meg,160Meg
+YExp=db(v(BUF2)/v(RFA1))
+XRng=230Meg,160Meg
+YRng=0, -5
+Options=LINEARX,LINEARY
+Range Grid X=5Meg
+Range Grid Y=1
+Enable=Enable
+Line Color=#000000
+Text Color=#000000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=2
+SFmtY=2
+NOFmtX=3E
+NOFmtY=3E
+
+[WaveForm]
+Analysis=AC
+Plt=1
+Page=PRESELECTOR
+AliasID=4
+XExp=F
+YExp=db(v(BUF2)/v(AC))
+XRng=230Meg,160Meg
 YRng=AutoAlways
 Options=LINEARX,LINEARY
 Range Grid X=5Meg
 Enable=Enable
-Line Color=#008000
-Text Color=#008000
+Line Color=#000000
+Text Color=#000000
 Rainbow=False
 VFmtX=3
 VFmtY=3
@@ -2566,11 +2715,11 @@ PlaceText=True
 
 [Pane]
 Analysis=Transient
-CurrentPage 0="BUFFER2"
+CurrentPage 0="PRESELECTOR"
 
 [Pane]
 Analysis=AC
-CurrentPage 0="RFA"
+CurrentPage 0="PRESELECTOR"
 
 [Pane]
 Analysis=DC
