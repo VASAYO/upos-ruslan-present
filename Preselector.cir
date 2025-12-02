@@ -514,7 +514,7 @@ Style=8192
 
 [Attr]
 ON=8,31,RESISTANCE
-V=26.2
+V=26.7
 Style=8192
 
 [Attr]
@@ -537,7 +537,7 @@ Style=8192
 
 [Attr]
 ON=8,25,RESISTANCE
-V=79.5
+V=79
 Style=8192
 
 [Attr]
@@ -1408,7 +1408,7 @@ Scale 0=1
 Scale 1=1
 Scale 2=1
 Scale 3=1
-Px=1536,290
+Px=366,575
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -2602,7 +2602,7 @@ Plt=1
 Page=IC
 AliasID=1
 XExp=F
-YExp=dB(v(IC)/v(AC))
+YExp=(v(IC)/v(AC))
 XRng=230Meg,160Meg
 YRng=AutoAlways
 Options=LINEARX,LINEARY
@@ -2628,7 +2628,7 @@ Plt=1
 Page=RFA
 AliasID=2
 XExp=F
-YExp=db(v(RFA)/v(IC1))
+YExp=(v(RFA)/v(IC1))
 XRng=230Meg,160Meg
 YRng=AutoAlways
 Options=LINEARX,LINEARY
@@ -2654,12 +2654,12 @@ Plt=1
 Page=BUF
 AliasID=3
 XExp=F
-YExp=db(v(BUF2)/v(RFA1))
+YExp=(v(BUF2)/v(RFA1))
 XRng=230Meg,160Meg
-YRng=0, -5
+YRng=1,0
 Options=LINEARX,LINEARY
 Range Grid X=5Meg
-Range Grid Y=1
+Range Grid Y=0.2
 Enable=Enable
 Line Color=#000000
 Text Color=#000000
@@ -2715,7 +2715,7 @@ PlaceText=True
 
 [Pane]
 Analysis=Transient
-CurrentPage 0="PRESELECTOR"
+CurrentPage 0="AC"
 
 [Pane]
 Analysis=AC
